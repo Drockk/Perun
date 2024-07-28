@@ -16,14 +16,14 @@ void perun::Log::init() {
     file_sink->set_level(spdlog::level::debug);
     file_sink->set_pattern("[%H:%M:%S.%e] [%n] [%^%l%$] [%t] %v");
 
-    m_coreLogger = std::make_shared<spdlog::logger>(spdlog::logger{"CORE", {console_sink, file_sink}});
-    m_appLogger = std::make_shared<spdlog::logger>(spdlog::logger{"APP", {console_sink, file_sink}});
+    m_core_logger = std::make_shared<spdlog::logger>(spdlog::logger{"CORE", {console_sink, file_sink}});
+    m_app_logger = std::make_shared<spdlog::logger>(spdlog::logger{"APP", {console_sink, file_sink}});
 }
 
-std::shared_ptr<spdlog::logger> perun::Log::getCoreLogger() {
-    return m_coreLogger;
+std::shared_ptr<spdlog::logger> perun::Log::get_core_logger() {
+    return m_core_logger;
 }
 
-std::shared_ptr<spdlog::logger> perun::Log::getAppLogger() {
-    return m_appLogger;
+std::shared_ptr<spdlog::logger> perun::Log::get_app_logger() {
+    return m_app_logger;
 }
